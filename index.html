@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasmen Bagaforo | Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+:root{
+  --bg:#f8fafc;
+  --text:#0f172a;
+  --accent:#0f766e;
+  --card:#ffffff;
+}
+
+body.dark{
+  --bg:#0f172a;
+  --text:#f1f5f9;
+  --card:#1e293b;
+}
+
+body{background:var(--bg);color:var(--text);transition:0.3s;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:var(--card);position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000;} 
+.logo{font-weight:700;font-size:22px;} .logo span{color:var(--accent);} 
+nav ul{display:flex;gap:25px;list-style:none;} nav a{text-decoration:none;color:var(--text);} 
+.toggle{cursor:pointer;border:1px solid #ccc;padding:6px 10px;border-radius:8px;}
+
+.hero{display:flex;justify-content:space-between;align-items:center;padding:100px 8%;flex-wrap:wrap;} 
+.hero-text{max-width:520px;} .hero-text h1{font-size:42px;margin:10px 0;} .hero-text span{color:var(--accent);} 
+.hero img{width:300px;border-radius:12px;}
+
+button{padding:12px 20px;border:none;border-radius:8px;cursor:pointer;margin-right:10px;} 
+.primary{background:var(--accent);color:#fff;} .secondary{background:#e2e8f0;}
+
+section{padding:80px 8%;} .section-title{font-size:30px;margin-bottom:30px;}
+
+.projects{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;} 
+@media(max-width:1200px){.projects{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:768px){.projects{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.projects{grid-template-columns:1fr;}}
+
+.project{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.08);position:relative;cursor:pointer;transition:0.3s;} 
+.project:hover{transform:translateY(-5px);} 
+.project img{width:100%;height:160px;object-fit:cover;display:block;} 
+.project-content{padding:15px;} .project-content h3{margin-bottom:5px;} 
+.project-content p{font-size:14px;color:#555;}
+.project-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:18px;opacity:0;transition:0.3s;border-radius:12px;} 
+.project:hover .project-overlay{opacity:1;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:30px;} 
+@media(max-width:768px){.grid-2{grid-template-columns:1fr;}}
+
+.contact{text-align:center;} input,textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;} 
+footer{text-align:center;padding:20px;background:var(--card);margin-top:40px;}
+
+#chat-btn{position:fixed;bottom:20px;right:20px;background:var(--accent);color:white;padding:12px 16px;border-radius:50px;cursor:pointer;z-index:1000;} 
+#chat-popup{position:fixed;bottom:80px;right:20px;width:300px;background:var(--card);border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.2);display:none;flex-direction:column;z-index:1000;} 
+#chat-messages{height:250px;overflow:auto;padding:10px;} 
+#chat-input{border:none;border-top:1px solid #ccc;padding:10px;width:100%;} 
+.user{background:#0f766e;color:white;margin:5px;padding:6px 10px;border-radius:10px;align-self:flex-end;} 
+.bot{background:#e2e8f0;margin:5px;padding:6px 10px;border-radius:10px;align-self:flex-start;}
+
+/* Achievements */
+ul.fa-ul{list-style:none;padding-left:1.5em;}
+.fa-li{position:absolute;margin-left:-1.5em;}
+.resume-section{padding:60px 8%;background:var(--card);border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.05);margin-bottom:30px;}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Jasmen<span>Dev</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h3>Full Stack Developer</h3>
+    <h1>Hello I'm <span>Jasmen Bagaforo</span></h1>
+    <p>I build web systems such as dashboards, management systems, and reservation platforms using PHP, MySQL, and JavaScript.</p>
+    <br>
+    <button class="primary">Download CV</button>
+    <button class="secondary" onclick="window.open('https://github.com/jasmen','_blank')">GitHub</button>
+  </div>
+  <img src="assests/img/profile.jpg" alt="Hero Image">
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="grid-2">
+    <p>I am an IT student passionate about developing real-world systems. I focus on backend development, secure authentication, dashboards, and database-driven applications. I aim to become a professional full-stack developer.</p>
+
+    <div>
+      <p><strong>Name:</strong> Jasmen Bagaforo</p>
+      <p><strong>Location:</strong> Philippines</p>
+      <p><strong>Role:</strong> Web Developer</p>
+      <p><strong>Tech Stack:</strong> PHP, MySQL, JavaScript</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects" id="projects-container"></div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <p><strong>Student Projects:</strong> Developed multiple systems with authentication, dashboards, and reporting features.</p>
+  <p><strong>Freelance / Practice Projects:</strong> Built responsive websites and backend systems using PHP and MySQL.</p>
+</section>
+
+<section class="resume-section" id="awards">
+  <div class="resume-section-content">
+    <h2 class="mb-5">Awards & Certifications</h2>
+    <ul class="fa-ul mb-0">
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in ITE 083: Project Management</li>
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in ITE 298: Information Management</li>
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in ITE 031</li>
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in MAT 152</li>
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in ITE 399: Human Computer Interaction</li>
+      <li><span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>Top Student in ITE 186: Computer Programming 2</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: jaba.bagaforo.ui@hinmaed.com</p>
+  <p>GitHub: github.com/jababagaforoui</p>
+</section>
+
+<footer>
+  <p>© 2026 Jasmen Bagaforo</p>
+</footer>
+
+<div id="chat-btn" onclick="toggleChat()">Chat</div>
+<div id="chat-popup">
+  <div id="chat-messages"></div>
+  <input id="chat-input" placeholder="Type message..." onkeydown="if(event.key==='Enter')sendMsg()">
+</div>
+
+<script>
+// ===== Dark Mode =====
+function toggleDark(){document.body.classList.toggle('dark');}
+
+// ===== Chat =====
+function toggleChat(){
+    let chat=document.getElementById('chat-popup');
+    chat.style.display = chat.style.display==='flex'?'none':'flex';
+}
+
+function sendMsg(){
+    let input=document.getElementById('chat-input');
+    let msg=input.value.trim();
+    if(!msg) return;
+    let box=document.getElementById('chat-messages');
+    
+    let user=document.createElement('div');
+    user.className='user';
+    user.innerText=msg;
+    box.appendChild(user);
+    input.value='';
+    
+    setTimeout(()=>{
+        let bot=document.createElement('div');
+        bot.className='bot';
+        bot.innerHTML = getReply(msg.toLowerCase());
+        box.appendChild(bot);
+        box.scrollTop = box.scrollHeight;
+    }, 400);
+}
+
+function getReply(msg){
+    if(msg.includes('projects')) return "I have 10 projects including Human Camera System, Anime Recommendation Books, Fresh Farm Eggs Inventory System, School Supplies System, Security Website, Online Smart Carteen, NetSense Analytics, Multi-Branch Egg Sales System, Food Inventory System, and Smart Facial Recognition Attendance System. Click any project to view it!";
+    if(msg.includes('skills')) return "My main skills are HTML, CSS, JavaScript, PHP, MySQL, CRUD systems, Admin Dashboards, and building responsive websites.";
+    if(msg.includes('contact')) return "Email: jaba.bagaforo.ui@hinmaed.com<br>GitHub: github.com/jaba.bagaforoui";
+    if(msg.includes('experience')) return "I have experience developing student projects with dashboards, authentication, and reporting features. Also worked on freelance projects.";
+    if(msg.includes('achievements') || msg.includes('awards')) return "I have received multiple top student awards in ITE 083, ITE 298, ITE 031, MAT 152, ITE 399, and ITE 186.";
+    if(msg.includes('education')) return "I am pursuing a Bachelor of Science in Information Technology.";
+    if(msg.includes('hello') || msg.includes('hi')) return "Hello! I'm Jasmen Bagaforo, a Full Stack Developer. How can I help you today?";
+    if(msg.includes('dark mode')) return "You can toggle dark mode using the 🌙 button at the top right corner.";
+    
+    return "Sorry, I don't understand that yet. Ask about my projects, skills, achievements, or contact info.";
+}
+
+// ===== Projects =====
+const projects = [
+  { name:"Human Camera System", desc:"A smart camera system for human detection and monitoring using image processing.", img:"https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/drive/folders/1hgbwj2ac2p_z4BZNthe1foqC2K_EsozN?usp=sharing" },
+  { name:"Anime Recommendation Books", desc:"A web app recommending anime and manga books based on user preferences.", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/drive/folders/1r5NkJI8Gu1Jkplhxh64_2J_n4H8MiRHF?usp=sharing" },
+  { name:"Right Choice Fresh Farm Eggs", desc:"Inventory management system tracking stock, suppliers, and orders efficiently.", img:"https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=600&q=80", link:"https://docs.google.com/document/d/1axSRyz47sApqfRxeyEkbTAuNutRD2Cukn2jtX9L_Z0w/edit?usp=sharing", link:"https://drive.google.com/drive/folders/166RfUtF3dmoOueNY1gwqMGn65hcHE5Lr?usp=sharing" },
+  { name:"School Supplies System", desc:"System for managing school supplies, tracking inventory and requests.", img:"https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/drive/folders/14BoTKudTuLm6yZwqxOBYKw7Sl1wNBRy2?usp=sharing" },
+  { name:"Security Website", desc:"Website for monitoring security systems and managing user access.", img:"https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/drive/folders/1pc6PXPrvqzo63a9ms4BxBUTuTKitXGVV?usp=sharing" },
+  { name:"Online Smart Carteen", desc:"E-commerce and food ordering platform with cart and checkout features.", img:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/drive/folders/1rgzt6D4uBsj7iPvDlTdz3yfGrEloPKt9?usp=sharing" },
+  { name:"NetSense: Data Analytics on Wi-Fi Performance", desc:"System analyzing Wi-Fi performance and data insights.", img:"https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80", link:"https://docs.google.com/document/d/1bWysc7a7QdR-EK1Rx7fhYUVh-2CgMLFzYz6w5oZadLw/edit?usp=sharing" },
+  { name:"Multi-Branch Egg Sales System", desc:"Manage employees, track attendance, and generate payroll reports for multi-branch supermarkets.", img:"https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=600&q=80", link:"https://docs.google.com/document/d/1axSRyz47sApqfRxeyEkbTAuNutRD2Cukn2jtX9L_Z0w/edit?usp=sharing" },
+  { name:"Food Inventory System", desc:"Full-featured online store with product catalog, cart, and payment integration.", img:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80", link:"https://docs.google.com/document/d/1R-BvY4WEQ5IVYziG2YBGw_SFDikTtv28/edit?usp=sharing&ouid=109232081781760225228&rtpof=true&sd=true" },
+  { name:"Smart Facial Recognition Attendance System", desc:"Attendance system for schools using facial recognition technology.", img:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80", link:"https://drive.google.com/file/d/1Y3YeFQH_wOQet2raEl3jQ47yHm-Gxf_F/view?usp=sharing" }
+];
+
+const container = document.getElementById('projects-container');
+projects.forEach(p=>{
+  const card = document.createElement('div');
+  card.className='project';
+  card.onclick = ()=> window.open(p.link,'_blank');
+  card.innerHTML = `
+    <img src="${p.img}" alt="${p.name}">
+    <div class="project-overlay">View Project</div>
+    <div class="project-content">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+    </div>
+  `;
+  container.appendChild(card);
+});
+</script>
+
+<!-- Font Awesome for trophies -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
